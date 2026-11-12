@@ -1,0 +1,7 @@
+{
+  "thr_vuln": 0.25,
+  "thr_satd": 0.25,
+  "accepted_from_tuning": true,
+  "submission_score": 0.8471282359556425,
+  "avg_f1": 0.7689560385700984
+}

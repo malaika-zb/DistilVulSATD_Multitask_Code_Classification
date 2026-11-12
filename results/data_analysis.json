@@ -1,0 +1,138 @@
+{
+  "train_size": 214586,
+  "test_size": 30655,
+  "fit_size": 203856,
+  "val_size": 10730,
+  "train_balance": [
+    {
+      "pattern": "[0,0]",
+      "count": 143022,
+      "rate": 0.6665020085187291
+    },
+    {
+      "pattern": "[1,0]",
+      "count": 68025,
+      "rate": 0.31700576924869284
+    },
+    {
+      "pattern": "[0,1]",
+      "count": 1192,
+      "rate": 0.0055548824247621
+    },
+    {
+      "pattern": "[1,1]",
+      "count": 2347,
+      "rate": 0.01093733980781598
+    },
+    {
+      "pattern": "vuln+",
+      "count": 70372,
+      "rate": 0.3279431090565088
+    },
+    {
+      "pattern": "satd+",
+      "count": 3539,
+      "rate": 0.01649222223257808
+    }
+  ],
+  "test_balance": [
+    {
+      "pattern": "[0,0]",
+      "count": 20433,
+      "rate": 0.6665470559451966
+    },
+    {
+      "pattern": "[1,0]",
+      "count": 9717,
+      "rate": 0.31697928559778177
+    },
+    {
+      "pattern": "[0,1]",
+      "count": 170,
+      "rate": 0.005545587995433045
+    },
+    {
+      "pattern": "[1,1]",
+      "count": 335,
+      "rate": 0.010928070461588647
+    },
+    {
+      "pattern": "vuln+",
+      "count": 10052,
+      "rate": 0.32790735605937044
+    },
+    {
+      "pattern": "satd+",
+      "count": 505,
+      "rate": 0.016473658457021693
+    }
+  ],
+  "val_balance": [
+    {
+      "pattern": "[0,0]",
+      "count": 7152,
+      "rate": 0.6665424044734389
+    },
+    {
+      "pattern": "[1,0]",
+      "count": 3401,
+      "rate": 0.3169617893755825
+    },
+    {
+      "pattern": "[0,1]",
+      "count": 60,
+      "rate": 0.005591798695246971
+    },
+    {
+      "pattern": "[1,1]",
+      "count": 117,
+      "rate": 0.010904007455731593
+    },
+    {
+      "pattern": "vuln+",
+      "count": 3518,
+      "rate": 0.32786579683131406
+    },
+    {
+      "pattern": "satd+",
+      "count": 177,
+      "rate": 0.016495806150978565
+    }
+  ],
+  "train_length": {
+    "n": 214586,
+    "mean_chars": 495.3905194187878,
+    "median_chars": 373.0,
+    "p90_chars": 1089.0,
+    "p99_chars": 1643.0,
+    "max_chars": 3449
+  },
+  "test_length": {
+    "n": 30655,
+    "mean_chars": 496.4899037677377,
+    "median_chars": 370.0,
+    "p90_chars": 1090.0,
+    "p99_chars": 1668.3799999999974,
+    "max_chars": 3274
+  },
+  "comment_coverage_train_sample": {
+    "sample_size": 5000,
+    "frac_with_extracted_comments": 0.1452,
+    "mean_comment_chars": 18.2726,
+    "mean_code_chars": 474.3398,
+    "bimodal_example": "static void prevent_background_work(struct cache *cache) {\n  lockdep_off();\n  down_write(&cache->background_work_lock);\n  lockdep_on();\n}"
+  },
+  "comment_coverage_satd_all": {
+    "sample_size": 3539,
+    "frac_with_extracted_comments": 0.907318451539983,
+    "mean_comment_chars": 150.55411133088444,
+    "mean_code_chars": 742.519920881605,
+    "bimodal_example": "/*\n     * TODO rework base driver to use values directly.\n     * for now parse it back into reg-format\n     */</s>static int dm_crtc_get_scanoutpos(struct amdgpu_device *adev, int crtc,\n                                  u32 *vbl, u32 *position) {\n  uint32_t v_blank_start, v_blank_end, h_position, v_"
+  },
+  "recommended_max_length_start": 256,
+  "notes": [
+    "Tune only on carved val from train; report once on public test.",
+    "SATD (MAT) is the rare label and main F1 bottleneck.",
+    "Overall comment extraction ~14%, but SATD+ rows are ~90%+ \u2014 bimodal packing is SATD-relevant."
+  ]
+}

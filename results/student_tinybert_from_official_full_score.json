@@ -1,0 +1,89 @@
+{
+  "run_name": "tinybert_from_official_L256_T4_e3",
+  "teacher": "NLBSE/nlbse27-code-comment-classification-baseline",
+  "student": "huawei-noah/TinyBERT_General_4L_312D",
+  "max_length": 256,
+  "temperature": 4.0,
+  "alpha": 0.7,
+  "epochs": 3,
+  "best_val_f1": 0.7436991570203249,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 5.778507170469864,
+      "val_avg_f1": 0.5450282398051712,
+      "per_class": [
+        {
+          "cat": "Vulnerability",
+          "precision": 0.8349914236706689,
+          "recall": 0.6918703808982376,
+          "f1": 0.7567231462770091
+        },
+        {
+          "cat": "MAT",
+          "precision": 0.8222222222222222,
+          "recall": 0.20903954802259886,
+          "f1": 0.3333333333333333
+        }
+      ]
+    },
+    {
+      "epoch": 2,
+      "train_loss": 5.326836816146748,
+      "val_avg_f1": 0.712737078070266,
+      "per_class": [
+        {
+          "cat": "Vulnerability",
+          "precision": 0.826940779380178,
+          "recall": 0.7660602615122228,
+          "f1": 0.7953371698391619
+        },
+        {
+          "cat": "MAT",
+          "precision": 0.8,
+          "recall": 0.519774011299435,
+          "f1": 0.6301369863013699
+        }
+      ]
+    },
+    {
+      "epoch": 3,
+      "train_loss": 5.241468801320282,
+      "val_avg_f1": 0.7436991570203249,
+      "per_class": [
+        {
+          "cat": "Vulnerability",
+          "precision": 0.8534990189666448,
+          "recall": 0.7418988061398522,
+          "f1": 0.7937956204379562
+        },
+        {
+          "cat": "MAT",
+          "precision": 0.8583333333333333,
+          "recall": 0.5819209039548022,
+          "f1": 0.6936026936026936
+        }
+      ]
+    }
+  ],
+  "checkpoint": "/content/drive/MyDrive/NLBSE27_DistilVulSATD/checkpoints/student_runs/tinybert_from_official_L256_T4_e3/best_model",
+  "avg_f1": 0.7624690380262247,
+  "avg_runtime": 48.54978859424591,
+  "avg_flops": 81535.36562038395,
+  "submission_score": 0.8423357740555267,
+  "per_class": [
+    {
+      "cat": "Vulnerability",
+      "precision": 0.8660795974382434,
+      "recall": 0.7533824114604059,
+      "f1": 0.8058097467546286
+    },
+    {
+      "cat": "MAT",
+      "precision": 0.9252336448598131,
+      "recall": 0.5881188118811881,
+      "f1": 0.7191283292978207
+    }
+  ],
+  "baseline_your_machine": 0.7165
+}

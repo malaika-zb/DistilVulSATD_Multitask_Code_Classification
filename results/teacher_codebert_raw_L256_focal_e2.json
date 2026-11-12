@@ -1,0 +1,18 @@
+{
+  "run_name": "codebert_raw_L256_focal_e2",
+  "best_val_f1": 0.79170653907496,
+  "epoch1": {
+    "train_loss": 0.0303,
+    "val_avg_f1": 0.7863,
+    "Vulnerability_f1": 0.847175,
+    "MAT_f1": 0.725352
+  },
+  "epoch2": {
+    "train_loss": 0.0220,
+    "val_avg_f1": 0.7917,
+    "Vulnerability_f1": 0.860606,
+    "MAT_f1": 0.722807
+  },
+  "decision": "Do not distill from this teacher. Official baseline (avg F1 0.910) is stronger; use it as KD teacher.",
+  "checkpoint_drive": "/content/drive/MyDrive/NLBSE27_DistilVulSATD/checkpoints/teacher_runs/codebert_raw_L256_focal_e2/best_model"
+}
