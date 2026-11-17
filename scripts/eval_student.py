@@ -1,6 +1,6 @@
 """Evaluate the DistilVulSATD TinyBERT student on the public test set.
 
-Default thresholds (0.25, 0.25) match the accepted submission configuration.
+Default thresholds (0.20, 0.55) match the accepted e5 submission configuration.
 Weights are large — download from the Drive folder linked in README.md.
 """
 
@@ -34,8 +34,8 @@ def main() -> None:
     parser.add_argument("--batch-size", type=int, default=600)
     parser.add_argument("--max-length", type=int, default=256)
     parser.add_argument("--repetitions", type=int, default=10)
-    parser.add_argument("--thr-vuln", type=float, default=0.25)
-    parser.add_argument("--thr-mat", type=float, default=0.25)
+    parser.add_argument("--thr-vuln", type=float, default=0.20)
+    parser.add_argument("--thr-mat", type=float, default=0.55)
     parser.add_argument(
         "--quick",
         action="store_true",

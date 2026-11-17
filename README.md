@@ -2,9 +2,10 @@
 
 Knowledge-distilled TinyBERT for **NLBSE’27 Multitask Code Classification** (vulnerability + SATD/MAT).
 
-**Public-test score: 0.8471** (avg F1 0.769 · runtime ~48.5 s · GFLOPs ~8.2e4) on Colab T4 with thresholds `(0.25, 0.25)`.
+**Public-test score (submitted config): 0.8566**  
+(avg F1 0.784 · runtime ~42 s · GFLOPs ~8.2e4) on Colab T4 with thresholds `(0.20, 0.55)`.
 
-Compared to the official CodeBERT baseline (~0.72–0.73 on the same formula), DistilVulSATD trades some F1 for a large drop in runtime and FLOPs, which dominates the ranking score.
+Compared to the official CodeBERT baseline (~0.72 on the same formula), DistilVulSATD trades some F1 for a large drop in runtime and FLOPs, which dominates the ranking score.
 
 ## Artifacts (model weights)
 
@@ -12,22 +13,41 @@ Weights are **not** stored in this repository (size / git limits). Download the 
 
 **[NLBSE27_DistilVulSATD (Drive)](https://drive.google.com/drive/folders/1Tpe54KkA_N-t6qlt0_C3h-WHuF5T-NQr)**
 
-Expected path after download:
+**Submitted checkpoint:**
 
 ```text
-.../checkpoints/student_runs/tinybert_from_official_L256_T4_e3/best_model/
+.../checkpoints/student_runs/tinybert_from_official_L256_T4_e5/best_model/
   config.json
   model.safetensors
   tokenizer files
 ```
 
-Metric tables (no weights) live under [`results/`](results/) — see [`RESULTS.md`](RESULTS.md).
+Accepted thresholds: **vuln = 0.20**, **MAT = 0.55**  
+(see `results/final_thresholds.json`).
+
+Metric tables live under [`results/`](results/) — see [`RESULTS.md`](RESULTS.md).
 
 ## Method (short)
 
 1. Reproduce the official CodeBERT baseline eval harness (F1 + timed AMP forwards + FLOPs + score).
-2. Distill the official baseline teacher into `TinyBERT_General_4L_312D` (3 epochs, T=4, α=0.7, max_length=256).
-3. Tune decision thresholds on a held-out validation carve; accept `(0.25, 0.25)` → public score **0.8471**.
+2. Distill the official baseline teacher into `TinyBERT_General_4L_312D` (**5 epochs**, T=4, α=0.7, max_length=256).
+3. Tune decision thresholds on a held-out validation carve; accept `(0.20, 0.55)` → public score **0.8566**.
+
+## Which notebooks to run (submitted pipeline)
+
+| Notebook | Role |
+|---|---|
+| `notebooks/00_baseline_reproduce.ipynb` | Baseline score on T4 |
+| `notebooks/02_train_teacher.ipynb` | Optional own CodeBERT teacher (ablation) |
+| **`notebooks/03_distill_student.ipynb`** | **Submitted KD (5 epochs) + public score @0.5** |
+| **`notebooks/06_threshold_tune.ipynb`** | **Submitted threshold tune → 0.20 / 0.55** |
+
+Legacy / ablation only (3-epoch run, score 0.8471):
+
+- `notebooks/03_distill_student_e3_legacy.ipynb`
+- `notebooks/06_threshold_tune_e3_legacy.ipynb`
+
+Drive root used in notebooks: `MyDrive/NLBSE27_DistilVulSATD/`.
 
 ## Repository layout
 
@@ -52,10 +72,10 @@ Data: Hugging Face `NLBSE/nlbse27-code-comment-classification`, or local `NLBSE_
 ## Reproduce public-test score
 
 ```bash
-# After downloading best_model/ from Drive:
+# After downloading e5 best_model/ from Drive:
 python scripts/eval_student.py \
-  --model-dir /path/to/best_model \
-  --thr-vuln 0.25 --thr-mat 0.25 \
+  --model-dir /path/to/tinybert_from_official_L256_T4_e5/best_model \
+  --thr-vuln 0.20 --thr-mat 0.55 \
   --max-length 256
 ```
 
@@ -71,16 +91,6 @@ Baseline reproduce:
 python scripts/run_baseline_eval.py          # full (GPU)
 python scripts/run_baseline_eval.py --quick  # smoke
 ```
-
-## Colab notebooks
-
-| Notebook | Purpose |
-|---|---|
-| `notebooks/00_baseline_reproduce.ipynb` | Official baseline score on T4 |
-| `notebooks/03_distill_student.ipynb` | One-shot KD + full public score |
-| `notebooks/06_threshold_tune.ipynb` | Val grid → accept 0.25/0.25 |
-
-Drive persistence root used in notebooks: `MyDrive/NLBSE27_DistilVulSATD/`.
 
 ## Scoring formula
 

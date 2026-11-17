@@ -1,0 +1,53 @@
+{
+  "run_name": "tinybert_from_official_L256_T4_e5",
+  "teacher": "NLBSE/nlbse27-code-comment-classification-baseline",
+  "student": "huawei-noah/TinyBERT_General_4L_312D",
+  "max_length": 256,
+  "temperature": 4.0,
+  "alpha": 0.7,
+  "epochs": 5,
+  "avg_f1": 0.7821826682773247,
+  "avg_runtime": 41.880955767631534,
+  "avg_flops": 81535.36562038395,
+  "submission_score": 0.8555,
+  "thresholds_at_eval": [
+    0.5,
+    0.5
+  ],
+  "per_class": [
+    {
+      "cat": "Vulnerability",
+      "precision": 0.849383,
+      "recall": 0.787107,
+      "f1": 0.81706
+    },
+    {
+      "cat": "MAT",
+      "precision": 0.945455,
+      "recall": 0.617822,
+      "f1": 0.747305
+    }
+  ],
+  "accepted_submission": {
+    "thr_vuln": 0.2,
+    "thr_satd": 0.55,
+    "avg_f1": 0.7843713185843462,
+    "submission_score": 0.8566,
+    "per_class": [
+      {
+        "cat": "Vulnerability",
+        "precision": 0.80283,
+        "recall": 0.840927,
+        "f1": 0.821437
+      },
+      {
+        "cat": "MAT",
+        "precision": 0.945455,
+        "recall": 0.617822,
+        "f1": 0.747305
+      }
+    ]
+  },
+  "checkpoint": "checkpoints/student_runs/tinybert_from_official_L256_T4_e5/best_model",
+  "baseline_your_machine": 0.7165
+}
