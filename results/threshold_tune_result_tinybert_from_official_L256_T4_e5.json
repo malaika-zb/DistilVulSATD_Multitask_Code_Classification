@@ -1,0 +1,64 @@
+{
+  "run_name": "tinybert_from_official_L256_T4_e5",
+  "current_score_reference": 0.8555,
+  "val_best_thresholds": {
+    "thr_vuln": 0.2,
+    "thr_satd": 0.55,
+    "avg_f1": 0.7620698372918058,
+    "vuln_f1": 0.8112683874548986,
+    "satd_f1": 0.712871287128713
+  },
+  "public_baseline_0_5": {
+    "thr_vuln": 0.5,
+    "thr_satd": 0.5,
+    "avg_f1": 0.7822648383530337,
+    "avg_runtime": 43.08424541950226,
+    "avg_flops": 81535.36562038395,
+    "submission_score": 0.8553063628865608,
+    "per_class": [
+      {
+        "cat": "Vulnerability",
+        "precision": 0.8495062258480034,
+        "recall": 0.7873060087544768,
+        "f1": 0.8172242874845106
+      },
+      {
+        "cat": "MAT",
+        "precision": 0.9454545454545454,
+        "recall": 0.6178217821782178,
+        "f1": 0.7473053892215569
+      }
+    ]
+  },
+  "public_tuned": {
+    "thr_vuln": 0.2,
+    "thr_satd": 0.55,
+    "avg_f1": 0.7843713185843462,
+    "avg_runtime": 43.08424541950226,
+    "avg_flops": 81535.36562038395,
+    "submission_score": 0.8565702510253483,
+    "per_class": [
+      {
+        "cat": "Vulnerability",
+        "precision": 0.8028302782790389,
+        "recall": 0.8409271786709113,
+        "f1": 0.8214372479471356
+      },
+      {
+        "cat": "MAT",
+        "precision": 0.9454545454545454,
+        "recall": 0.6178217821782178,
+        "f1": 0.7473053892215569
+      }
+    ]
+  },
+  "accepted": true,
+  "final_thresholds": {
+    "thr_vuln": 0.2,
+    "thr_satd": 0.55
+  },
+  "final_submission_score": 0.8565702510253483,
+  "final_avg_f1": 0.7843713185843462,
+  "checkpoint": "/content/drive/MyDrive/NLBSE27_DistilVulSATD/checkpoints/student_runs/tinybert_from_official_L256_T4_e5/best_model",
+  "rule": "Accept tuned thresholds only if public submission_score >= 0.8555"
+}

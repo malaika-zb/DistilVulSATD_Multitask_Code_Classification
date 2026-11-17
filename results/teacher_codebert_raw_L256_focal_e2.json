@@ -1,18 +1,51 @@
 {
   "run_name": "codebert_raw_L256_focal_e2",
-  "best_val_f1": 0.79170653907496,
-  "epoch1": {
-    "train_loss": 0.0303,
-    "val_avg_f1": 0.7863,
-    "Vulnerability_f1": 0.847175,
-    "MAT_f1": 0.725352
-  },
-  "epoch2": {
-    "train_loss": 0.0220,
-    "val_avg_f1": 0.7917,
-    "Vulnerability_f1": 0.860606,
-    "MAT_f1": 0.722807
-  },
-  "decision": "Do not distill from this teacher. Official baseline (avg F1 0.910) is stronger; use it as KD teacher.",
-  "checkpoint_drive": "/content/drive/MyDrive/NLBSE27_DistilVulSATD/checkpoints/teacher_runs/codebert_raw_L256_focal_e2/best_model"
+  "model_name": "microsoft/codebert-base",
+  "input_mode": "raw",
+  "max_length": 256,
+  "loss": "focal",
+  "epochs": 2,
+  "batch_size": 16,
+  "lr": 2e-05,
+  "best_val_f1": 0.7922367302934648,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.029547477553424028,
+      "val_avg_f1": 0.7894258830878549,
+      "per_class": [
+        {
+          "cat": "Vulnerability",
+          "precision": 0.8328374357587233,
+          "recall": 0.8752131893121091,
+          "f1": 0.8534996534996535
+        },
+        {
+          "cat": "MAT",
+          "precision": 0.9626168224299065,
+          "recall": 0.5819209039548022,
+          "f1": 0.7253521126760564
+        }
+      ]
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.021740812978875614,
+      "val_avg_f1": 0.7922367302934648,
+      "per_class": [
+        {
+          "cat": "Vulnerability",
+          "precision": 0.816010165184244,
+          "recall": 0.91273450824332,
+          "f1": 0.8616664430430699
+        },
+        {
+          "cat": "MAT",
+          "precision": 0.9537037037037037,
+          "recall": 0.5819209039548022,
+          "f1": 0.7228070175438595
+        }
+      ]
+    }
+  ]
 }

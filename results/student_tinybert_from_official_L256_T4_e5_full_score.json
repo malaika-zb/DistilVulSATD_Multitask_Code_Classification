@@ -6,48 +6,122 @@
   "temperature": 4.0,
   "alpha": 0.7,
   "epochs": 5,
+  "best_val_f1": 0.7592572407349736,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 5.852961757571895,
+      "val_avg_f1": 0.3795566135991668,
+      "per_class": [
+        {
+          "cat": "Vulnerability",
+          "precision": 0.7964408367155792,
+          "recall": 0.7251279135872655,
+          "f1": 0.7591132271983336
+        },
+        {
+          "cat": "MAT",
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      ]
+    },
+    {
+      "epoch": 2,
+      "train_loss": 5.3510194404816405,
+      "val_avg_f1": 0.7296720685485504,
+      "per_class": [
+        {
+          "cat": "Vulnerability",
+          "precision": 0.8292155651636813,
+          "recall": 0.7632177373507675,
+          "f1": 0.7948490230905861
+        },
+        {
+          "cat": "MAT",
+          "precision": 0.7846153846153846,
+          "recall": 0.576271186440678,
+          "f1": 0.6644951140065146
+        }
+      ]
+    },
+    {
+      "epoch": 3,
+      "train_loss": 5.243584364329865,
+      "val_avg_f1": 0.7370266053987774,
+      "per_class": [
+        {
+          "cat": "Vulnerability",
+          "precision": 0.8560105680317041,
+          "recall": 0.7367822626492325,
+          "f1": 0.7919340054995416
+        },
+        {
+          "cat": "MAT",
+          "precision": 0.824,
+          "recall": 0.5819209039548022,
+          "f1": 0.6821192052980132
+        }
+      ]
+    },
+    {
+      "epoch": 4,
+      "train_loss": 5.190898002438297,
+      "val_avg_f1": 0.7523968183891449,
+      "per_class": [
+        {
+          "cat": "Vulnerability",
+          "precision": 0.84264751795192,
+          "recall": 0.767197271176805,
+          "f1": 0.8031542925159946
+        },
+        {
+          "cat": "MAT",
+          "precision": 0.8359375,
+          "recall": 0.6045197740112994,
+          "f1": 0.7016393442622951
+        }
+      ]
+    },
+    {
+      "epoch": 5,
+      "train_loss": 5.15812915611297,
+      "val_avg_f1": 0.7592572407349736,
+      "per_class": [
+        {
+          "cat": "Vulnerability",
+          "precision": 0.8423812461443554,
+          "recall": 0.7762933484934622,
+          "f1": 0.8079881656804734
+        },
+        {
+          "cat": "MAT",
+          "precision": 0.8503937007874016,
+          "recall": 0.6101694915254238,
+          "f1": 0.7105263157894737
+        }
+      ]
+    }
+  ],
+  "checkpoint": "/content/drive/MyDrive/NLBSE27_DistilVulSATD/checkpoints/student_runs/tinybert_from_official_L256_T4_e5/best_model",
   "avg_f1": 0.7821826682773247,
   "avg_runtime": 41.880955767631534,
   "avg_flops": 81535.36562038395,
-  "submission_score": 0.8555,
-  "thresholds_at_eval": [
-    0.5,
-    0.5
-  ],
+  "submission_score": 0.8554977187715096,
   "per_class": [
     {
       "cat": "Vulnerability",
-      "precision": 0.849383,
-      "recall": 0.787107,
-      "f1": 0.81706
+      "precision": 0.8493827160493828,
+      "recall": 0.7871070433744528,
+      "f1": 0.8170599473330925
     },
     {
       "cat": "MAT",
-      "precision": 0.945455,
-      "recall": 0.617822,
-      "f1": 0.747305
+      "precision": 0.9454545454545454,
+      "recall": 0.6178217821782178,
+      "f1": 0.7473053892215569
     }
   ],
-  "accepted_submission": {
-    "thr_vuln": 0.2,
-    "thr_satd": 0.55,
-    "avg_f1": 0.7843713185843462,
-    "submission_score": 0.8566,
-    "per_class": [
-      {
-        "cat": "Vulnerability",
-        "precision": 0.80283,
-        "recall": 0.840927,
-        "f1": 0.821437
-      },
-      {
-        "cat": "MAT",
-        "precision": 0.945455,
-        "recall": 0.617822,
-        "f1": 0.747305
-      }
-    ]
-  },
-  "checkpoint": "checkpoints/student_runs/tinybert_from_official_L256_T4_e5/best_model",
   "baseline_your_machine": 0.7165
 }
